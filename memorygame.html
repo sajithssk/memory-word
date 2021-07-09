@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Memory Game</title>
+        
+        
+        <style>
+            .column {
+                float: left;
+                width: 25%;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+            
+                clear: both;
+            
+            }
+        
+        </style>
+    </head>
+    <link rel="stylesheet" href="styles.css">
+    <body style="background-color :palevioletred;">
+        
+    <style>
+        h1 {text-align: center; }
+        p {text-align: center ;}
+        div {                             
+                margin-bottom: 30px;
+            }
+  
+    </style>
+        <h1>Can you Remember the words!!! </h1>
+        <p> ***Complete all the puzzle to win*** </p>  <br>
+
+        <audio autoplay="" src="SleepAway.mp3"></audio>
+        
+        <a class="button" href="memorygame.html" role="button" style="padding: 30px;background-color: red;border: black;max-width: 170px;width: 100px;margin-right: 10px;border-radius: 25px; font-style: oblique; color: black;">Play Again</a>
+        <a class="button" href=" https://www.education.com/games/" role="button" style="padding: 30px;background-color: green;border: black;max-width: 170px;width: 100px;margin-right: 10px;border-radius: 25px; font-style : oblique; color: black;">Play More Games</a>
+        
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" align = "center">
+            <div class="column"><img id="img4" src="Moon.gif" onclick="func4()" ></div>
+            <div class="column"><img id="img1" src="Moon.gif" onclick="func1()" ></div>
+            <div class="column"><img id="img3" src="Moon.gif" onclick="func3()" ></div>
+            <div class="column"><img id="img5" src="Moon.gif" onclick="func5()" ></div>
+        <div>  
+            
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <div class="column"><img id="img2" src="Moon.gif" onclick="func2()" ></div>
+            <div class="column"><img id="img3_3" src="Moon.gif" onclick="func3_3()" ></div>
+            <div class="column"><img id="img1_1" src="Moon.gif" onclick="func1_1()" ></div>
+            <div class="column"><img id="img6" src="Moon.gif" onclick="func6()" ></div>
+        </div>
+        
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <div class="column"><img id="img5_5" src="Moon.gif" onclick="func5_5()" ></div>
+            <div class="column"><img id="img6_6" src="Moon.gif" onclick="func6_6()" ></div>
+            <div class="column"><img id="img2_2" src="Moon.gif" onclick="func2_2()" ></div>
+            <div class="column"><img id="img4_4" src="Moon.gif" onclick="func4_4()" ></div>
+        </div>
+
+        
+        
+        
+    </body>
+    
+    
+    <script>
+        
+        //the boolean variables to check
+        var img1bol = false;
+        var img1_1bol = false;
+        var img2bol = false;
+        var img2_2bol = false;
+        var img3bol = false;
+        var img3_3bol = false;
+        var img4bol = false;
+        var img4_4bol = false;
+        var img5bol = false;
+        var img5_5bol = false;
+        var img6bol = false;
+        var img6_6bol = false;
+        
+        var clicked =0;
+        var hold = 0;//to hold who click the button
+        
+        function func1(){
+            clicked++;
+            img1bol=true;
+            
+            if(clicked == 1){
+                document.getElementById("img1").src = img1Source ;
+                hold = 1;
+                
+            }
+            else if (clicked == 2){
+                if(img1bol == img1_1bol){
+                    document.getElementById("img1").src = img1Source ;
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    document.getElementById("img1").src = img1Source ;
+                    setTimeout(function(){
+                        document.getElementById("img1").src = noonSource ;
+                    }, 1000);   
+                    console.log(hold);
+                    console.log("catching error here 1");
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func1_1(){
+            clicked++;
+            img1_1bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img1_1").src = img1Source ; //change
+                hold = 11; //change
+            }
+            else if (clicked == 2){
+                if(img1bol == img1_1bol){
+                    document.getElementById("img1_1").src = img1Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 1_1"); //change
+                    document.getElementById("img1_1").src = img1Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img1_1").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func2(){
+            clicked++;
+            img2bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img2").src = img2Source ; //change
+                hold = 2; //change
+            }
+            else if (clicked == 2){
+                if(img2bol == img2_2bol){
+                    document.getElementById("img2").src = img2Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 2"); //change
+                    document.getElementById("img2").src = img2Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img2").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+//            else{
+//                holdFun(hold);
+//            }
+        }
+        
+        function func2_2(){
+            clicked++;
+            img2_2bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img2_2").src = img2Source ; //change
+                hold = 22; //change
+            }
+            else if (clicked == 2){
+                if(img2bol == img2_2bol){
+                    document.getElementById("img2_2").src = img2Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 2_2"); //change
+                    document.getElementById("img2_2").src = img2Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img2_2").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func3(){
+            clicked++;
+            img3bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img3").src = img3Source ; //change
+                hold = 3; //change
+            }
+            else if (clicked == 2){
+                if(img3bol == img3_3bol){
+                    document.getElementById("img3").src = img3Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 3"); //change
+                    document.getElementById("img3").src = img3Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img3").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func3_3(){
+            clicked++;
+            img3_3bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img3_3").src = img3Source ; //change
+                hold = 33; //change
+            }
+            else if (clicked == 2){
+                if(img3bol == img3_3bol){
+                    document.getElementById("img3_3").src = img3Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 3_3"); //change
+                    document.getElementById("img3_3").src = img3Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img3_3").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func4(){
+            clicked++;
+            img4bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img4").src = img4Source ; //change
+                hold = 4; //change
+            }
+            else if (clicked == 2){
+                if(img4bol == img4_4bol){
+                    document.getElementById("img4").src = img4Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 4"); //change
+                    document.getElementById("img4").src = img4Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img4").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func4_4(){
+            clicked++;
+            img4_4bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img4_4").src = img4Source ; //change
+                hold = 44; //change
+            }
+            else if (clicked == 2){
+                if(img4bol == img4_4bol){
+                    document.getElementById("img4_4").src = img4Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 4_4"); //change
+                    document.getElementById("img4_4").src = img4Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img4_4").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func5(){
+            clicked++;
+            img5bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img5").src = img5Source ; //change
+                hold = 5; //change
+            }
+            else if (clicked == 2){
+                if(img5bol == img5_5bol){ //change
+                    document.getElementById("img5").src = img5Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 5"); //change
+                    document.getElementById("img5").src = img5Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img5").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func5_5(){
+            clicked++;
+            img5_5bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img5_5").src = img5Source ; //change
+                hold = 55; //change
+            }
+            else if (clicked == 2){
+                if(img5bol == img5_5bol){ //change
+                    document.getElementById("img5_5").src = img5Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 5_5"); //change
+                    document.getElementById("img5_5").src = img5Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img5_5").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func6(){
+            clicked++;
+            img6bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img6").src = img6Source ; //change
+                hold = 6; //change
+            }
+            else if (clicked == 2){
+                if(img6bol == img6_6bol){ //change
+                    document.getElementById("img6").src = img6Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 6"); //change
+                    document.getElementById("img6").src = img6Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img6").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        function func6_6(){
+            clicked++;
+            img6_6bol=true;//change
+            
+            if(clicked == 1){
+                document.getElementById("img6_6").src = img6Source ; //change
+                hold = 66; //change
+            }
+            else if (clicked == 2){
+                if(img6bol == img6_6bol){ //change
+                    document.getElementById("img6_6").src = img6Source ; //change
+                    hold = 0;
+                    clicked = 0;
+                    setTimeout(function(){
+                        win();
+                    }, 1000);
+                }
+                else{
+                    console.log("catching error here 6_6"); //change
+                    document.getElementById("img6_6").src = img6Source ; //change
+                    setTimeout(function(){
+                        document.getElementById("img6_6").src = noonSource ; //change
+                    }, 1000);
+                    holdFun(hold);
+                    hold = 0;
+                    clicked = 0;
+                }
+            }
+        }
+        
+        //make the hold go back to moon pic 
+        function holdFun(hold){
+            //1-11-2-22-3-33-4-44-5-55-6-66
+            if(hold == 1){
+                document.getElementById("img1").src = noonSource ;
+                img1bol = false;
+            }
+            else if(hold == 11){
+                document.getElementById("img1_1").src = noonSource ;     
+                img1_1bol = false;
+            }
+            else if(hold == 2){
+                document.getElementById("img2").src = noonSource ;   
+                img2bol = false;
+            }
+            else if(hold == 22){
+                document.getElementById("img2_2").src = noonSource ;
+                img2_2bol = false;
+            }
+            else if(hold == 3){
+                document.getElementById("img3").src = noonSource ;    
+                img3bol = false;
+            }
+            else if(hold == 33){
+                document.getElementById("img3_3").src = noonSource ;  
+                img3_3bol = false;
+            }
+            else if(hold == 4){
+                document.getElementById("img4").src = noonSource ;
+                img4bol = false;
+            }
+            else if(hold == 44){
+                document.getElementById("img4_4").src = noonSource ;  
+                img4_4bol = false;                
+            }
+            else if(hold == 5){
+                document.getElementById("img5").src = noonSource ;   
+                img5bol = false;
+            }
+            else if(hold == 55){
+                document.getElementById("img5_5").src = noonSource ;      
+                img5_5bol = false;
+            }
+            else if(hold == 6){
+                document.getElementById("img6").src = noonSource ; 
+                img6bol = false;
+            }
+            else if(hold == 66){
+                document.getElementById("img6_6").src = noonSource ;  
+                img6_6bol = false;
+            }
+            else{
+                console.log("Error in hold");
+            }
+        }
+        
+        //function to check if he win
+        function win(){
+            if(img1bol && img1_1bol && img2bol && img2_2bol && img3bol && img3_3bol && img4bol && img4_4bol &&
+              img5bol && img5_5bol && img6bol && img6_6bol){
+                alert("!!!Congratulation You have succesfully completed the Puzzle!!!");
+            }
+        }
+        
+        //make all var that hold src pic's
+        var noonSource = "Moon.gif";
+        var img1Source = "memory1.gif";
+        var img2Source = "memory2.gif";
+        var img3Source = "memory3.gif";
+        var img4Source = "memory4.gif";
+        var img5Source = "memory5.gif";
+        var img6Source = "memory6.gif";
+        
+    </script>
+     
+</html>
