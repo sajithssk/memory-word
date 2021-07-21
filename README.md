@@ -1,2 +1,3 @@
 # memory-word
-memory word game
+This is a memmory puzzle game
+https://musing-jepsen-140205.netlify.app
